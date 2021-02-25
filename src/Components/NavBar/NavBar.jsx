@@ -1,5 +1,6 @@
 //npm import
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -23,12 +24,21 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button className={classes.button} color="inherit">
-            Books
-          </Button>
-          <Button className={classes.button} color="inherit">
-            Characters
-          </Button>
+          <Link to={`/`}  style={{ textDecoration: 'none' }}>
+            <Button className={classes.button} color="inherit" >
+              Home
+            </Button>
+          </Link>
+          <Link to={`/books`} style={{ textDecoration: 'none' }}>
+            <Button className={classes.button} color="inherit">
+              Books
+            </Button>
+          </Link>
+          <Link to={`/characters`} style={{ textDecoration: 'none' }}>
+            <Button className={classes.button} color="inherit">
+              Characters
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

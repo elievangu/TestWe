@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 //local import
-import BookPage from "../../Components/Books/BookPage";
+import BookPage from "../../Components/Book/BookPage";
 import { fetchBookDetails } from "../../Actions/index";
 
 const mapStateToProps = (state) => {

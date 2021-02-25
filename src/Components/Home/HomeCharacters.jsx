@@ -1,26 +1,33 @@
 //npm import
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-
+import { usePromiseTracker } from "react-promise-tracker";
 
 //local import
 import CharacterItem from "./CharacterItem";
+import NavBar from "../NavBar/NavBar";
+import Loader from "../Loading/Loader";
 
 const HomeCharacters = ({ fetchCharacters, characters }) => {
+
   useEffect(() => {
     fetchCharacters();
-  }, [fetchCharacters]);
+  }, []);
 
+  const { promiseInProgress } = usePromiseTracker();
   return (
     <div>
+      <NavBar />
       <h1>CHARACTERS</h1>
       <ul>
-        {characters.map((character) =>
-          character.name !== "" ? (
-            <CharacterItem key={character.url} character={character.name} />
-          ) : (
-            <CharacterItem key={character.url} character={character.aliases} />
-          )
+        {promiseInProgress ? <Loader /> : (
+          characters.map((character, index) => (
+            <CharacterItem
+              key={character.url}
+              character={character}
+              index={index}
+            />
+          ))
         )}
       </ul>
     </div>
@@ -29,7 +36,7 @@ const HomeCharacters = ({ fetchCharacters, characters }) => {
 
 HomeCharacters.propTypes = {
   fetchCharacters: PropTypes.func.isRequired,
-  characters: PropTypes.object.isRequired,
+  characters: PropTypes.array.isRequired,
 };
 
 export default HomeCharacters;

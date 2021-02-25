@@ -4,19 +4,20 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 //local import
-const BookItem = ({ book, index }) => {
+
+const RelatedBooks = ({ character, index }) => {
   return (
     <>
       <Link to={`/book/${index + 1}`} style={{ textDecoration: 'none' }}>
-        <li>{book.name}</li>
+        <li>{character.books[index]}</li>
       </Link>
     </>
   );
 };
 
-BookItem.propTypes = {
+RelatedBooks.propTypes = {
   book: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
 };
 
-export default BookItem;
+export default RelatedBooks;

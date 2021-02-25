@@ -8,13 +8,15 @@ import books from './books';
 import characterDetails from './characterDetails';
 import characters from './characters';
 
-const RootReducer = history => combineReducers({
-  router: connectRouter(history),
-  bookDetails,
-  books,
-  characterDetails,
-  characters
 
-})
-
-export default RootReducer;
+const rootReducer = (history) => {
+  return combineReducers({
+    router: connectRouter(history),
+    bookDetails,
+    books,
+    characterDetails,
+    characters
+  
+  })
+}
+export default rootReducer;

@@ -2,8 +2,8 @@
 import { connect } from "react-redux";
 
 //local import
-import CharacterPage from "../../Components/Characters/CharacterPage";
-import fetchCharacterDetails from "../../Actions/index";
+import CharacterPage from "../../Components/Character/CharacterPage";
+import { fetchCharacterDetails } from "../../Actions/index";
 
 const mapStateToProps = (state) => {
   return {
